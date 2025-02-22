@@ -1,0 +1,80 @@
+@import "./Typography.scss";
+@import "./Colors";
+
+.email-input-container {
+  display: flex;
+  flex-direction: column;
+
+
+  .email-title-wrapper{
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .input {
+    @extend .label-m;
+    width: 400px;
+    max-height: 48px;
+    border: 1px solid $surface-x-high;
+    border-radius: 12px;
+    padding: 12px 8px 12px 16px;
+    box-sizing: border-box;
+    transition: border 0.2s ease-in-out;
+    caret-color: $surface-brand;
+
+
+    &:hover {
+      border-color: rgba(26, 26, 26, 0.06);
+      outline: none;
+    }
+
+    &:focus {
+      border: 3px solid rgba(26, 26, 26, 0.8);
+      outline: none;
+
+    }
+    &::placeholder {
+      @extend .body-m;
+      color: $content-on-neutral-low;
+    }
+  }
+
+  .spinner {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: conic-gradient(rgba($surface-brand, 0) 0%, rgba($surface-brand, 1) 100%);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+
+  }
+
+  @keyframes spin {
+    from {
+      transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+
+  .error-text {
+    color: $content-on-neutral-danger;
+    font-size: 14px;
+  }
+}
+
+.email-input-container:not(:last-child) {
+  margin-bottom: 30px;
+}

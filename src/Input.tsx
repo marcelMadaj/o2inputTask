@@ -40,8 +40,8 @@ const Input: React.FC<InputProps> = ({inputName, optional, error, placeholder, v
     return (
         <div className={`input-container ${touched && !isValid ? "error" : ""}`}>
             <div className="title-wrapper">
-                <label htmlFor={id} className="label-m">{inputName}</label>
-                <label htmlFor={id} className="label-s">{optional && inputTexts?.optional}</label>
+                <label htmlFor={id} className="font-label-m-name">{inputName}</label>
+                <label htmlFor={id} className="font-label-s-optional">{optional && inputTexts?.optional}</label>
             </div>
             <div className="input-wrapper">
                 <input
@@ -49,9 +49,10 @@ const Input: React.FC<InputProps> = ({inputName, optional, error, placeholder, v
                     id={id}
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
-                    onBlur={handleBlur}
+                    onFocus={() => setTouched(true)}
+                    onBlur={() => {handleBlur()}}
                     className={`input ${touched && !isValid ? "input-error" : ""}`}
-                    placeholder={(touched && !isValid) ? "" :placeholder}
+                    placeholder={!touched && (!touched || isValid) ? placeholder : ""}
                 />
                 {loading && <div className="spinner"/>}
             </div>

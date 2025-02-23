@@ -12,6 +12,17 @@
     gap: 8px;
     width: 100%;
     margin-bottom: 8px;
+
+    .font-label-m-name {
+      @extend .font-label-m;
+      color: $content-on-neutral-xx-high;
+    }
+
+    .font-label-s-optional {
+      @extend .font-label-s;
+      color: $content-on-neutral-low;
+    }
+
   }
 
   .input-wrapper {
@@ -20,7 +31,7 @@
   }
 
   .input {
-    @extend .label-m;
+    @extend .font-label-m;
     width: 400px;
     max-height: 48px;
     border: 1px solid $surface-x-high;
@@ -32,23 +43,23 @@
 
 
     &:hover {
-      border-color: rgba(26, 26, 26, 0.06);
+      border-color: $state-default-hover;
       outline: none;
     }
 
     &:focus {
-      border: 3px solid rgba(26, 26, 26, 0.8);
+      border: 3px solid $state-default-focus;
       outline: none;
 
     }
     &::placeholder {
-      @extend .body-m;
+      @extend .font-body-m;
       color: $content-on-neutral-low;
     }
   }
 
   .input-error {
-    border-color: $content-on-neutral-danger;
+    border-color: $surface-danger;
     color: $content-on-neutral-danger;
     &::placeholder {
       color: $content-on-neutral-danger;
@@ -59,7 +70,6 @@
     border-color:  $content-on-neutral-danger;
   }
 
-
   .spinner {
     position: absolute;
     right: 12px;
@@ -67,10 +77,9 @@
     transform: translateY(-50%);
     width: 24px;
     height: 24px;
-    background: conic-gradient(rgba($surface-brand, 0) 0%, rgba($surface-brand, 1) 100%);
+    background: conic-gradient(from 180deg at 50% 50%, $surface-brand 0deg, rgba(0, 80, 255, 0) 360deg);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
-
   }
 
   @keyframes spin {
@@ -89,8 +98,8 @@
 }
 
 .input-container.error {
-  .title-wrapper .label-m,
-  .title-wrapper .label-s {
+  .title-wrapper .font-label-m,
+  .title-wrapper .font-label-s {
     color: $content-on-neutral-danger;
   }
 }

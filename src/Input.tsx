@@ -28,7 +28,7 @@ const Input: React.FC<InputProps> = ({inputName, optional, error, placeholder, v
         setTouched(true);
         setLoading(true);
         setTimeout(() => {
-            if (!value.trim()) {
+            if (value.length === 0) {
                 setIsValid(optional);
             } else {
                 setIsValid(validate(value));
@@ -58,7 +58,7 @@ const Input: React.FC<InputProps> = ({inputName, optional, error, placeholder, v
             </div>
             {touched && !isValid && (
                 <p className="error-text">
-                    {!value.trim() ? inputTexts?.mandatory : error}
+                    {value.length === 0 ? inputTexts?.mandatory : error}
                 </p>
             )}
         </div>

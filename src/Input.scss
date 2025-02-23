@@ -92,8 +92,8 @@
   }
 
   .error-text {
+    @extend .font-label-s;
     color: $content-on-neutral-danger;
-    font-size: 14px;
   }
 }
 

@@ -14,6 +14,7 @@ function App() {
             placeholder={inputTexts?.email?.placeholder}
             validate={validateEmail}
             type={InputType.Email}
+            id={inputTexts?.email?.id}
         />
         <Input
             inputName={inputTexts?.postalCode?.inputName}
@@ -21,6 +22,7 @@ function App() {
             error={inputTexts?.postalCode?.error}
             placeholder={inputTexts?.postalCode?.placeholder}
             validate={validatePostalCode}
+            id={inputTexts?.postalCode?.id}
         />
         <Input
             inputName={inputTexts?.firstName?.inputName}
@@ -28,6 +30,7 @@ function App() {
             error={inputTexts?.firstName?.error}
             placeholder={inputTexts?.firstName?.placeholder}
             validate={validateName}
+            id={inputTexts?.firstName?.id}
         />
     </div>
   );

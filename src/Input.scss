@@ -1,12 +1,12 @@
 @import "./Typography.scss";
 @import "./Colors";
 
-.email-input-container {
+.input-container {
   display: flex;
   flex-direction: column;
 
 
-  .email-title-wrapper{
+  .title-wrapper{
     display: flex;
     align-items: baseline;
     gap: 8px;
@@ -47,6 +47,19 @@
     }
   }
 
+  .input-error {
+    border-color: $content-on-neutral-danger;
+    color: $content-on-neutral-danger;
+    &::placeholder {
+      color: $content-on-neutral-danger;
+    }
+  }
+
+  .input-error:focus {
+    border-color:  $content-on-neutral-danger;
+  }
+
+
   .spinner {
     position: absolute;
     right: 12px;
@@ -75,6 +88,13 @@
   }
 }
 
-.email-input-container:not(:last-child) {
+.input-container.error {
+  .title-wrapper .label-m,
+  .title-wrapper .label-s {
+    color: $content-on-neutral-danger;
+  }
+}
+
+.input-container:not(:last-child) {
   margin-bottom: 30px;
 }
